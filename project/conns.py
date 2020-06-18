@@ -56,14 +56,12 @@ def nn_conn(node, i):
     k = 0
     while isinstance(x,list) and x[0]=="¬":
         k+=1
-        print(x)
         x = x[1]
     if k%2==1:
         if isinstance(x,list):
             x = ["¬",x]
         else:
             x = x = ["¬",[x]]
-    print(x)
     y[i] = x[:]
     node.vd.append(x)
         
