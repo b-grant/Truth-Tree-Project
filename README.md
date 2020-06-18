@@ -6,6 +6,18 @@ Truth trees, or tableaux proofs, are used as a visualisation of the possible str
 
 ![Example Truth Tree](https://www.logicmatters.net/wp-content/uploads/2010/04/tableau01.gif)
 
+The above tree, in my program, should look like this when input:
+
+     `|- p^r, ¬(p^q), ¬(¬(rvq)), p, r`
+
+         |   - ¬(p), rvq   x
+
+             |  |- ¬(q), rvq
+
+                `|  |  - r
+
+                `|  |   - q   x`
+
 Concerning proof using a truth tree, either all paths are closed or they aren't. By this I mean that if all paths are closed we know that there must be a contradiction in the set. However, if all paths are open, this does not mean that it is a tautology, only that it is satisfiable. Due to this, to prove whether a sentence is a tautology, we must negate it and then prove its negation is a contradiction.
 
 
