@@ -21,7 +21,7 @@ When inputting sentences, I have required more than the syntax of propositional 
 
 For example, the implicit brackets for `p v q v r` are `p v ( q v r )`, meaning only the second sentence would be excepeted by the program. Another example would be that `p ^ ¬p` has to be written as `p ^ ( ¬ ( p ) )`. Brackets are important as they dictate the scope of a connective.
 
-Also, I don't allow anything more than single letter variables, and everything must be separted by a space. So, `pvq` would be rejected as it would be read as a multi letter variable, rather than as `p v q`.
+Also, I don't allow anything more than single letter variables, and everything must be separated by a space. So, `pvq` would be rejected as it would be read as a multi letter variable, rather than as `p v q`.
 
 
 
