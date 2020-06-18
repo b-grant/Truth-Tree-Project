@@ -1,4 +1,4 @@
-from truth_trees import one, two, three, four
+from options import one, two, three, four
 
 fin = False
 print("** Truth Tree creator **\n"
