@@ -25,11 +25,11 @@ Concerning proof using a truth tree, either all paths are closed or they aren't.
 It should be run using main.py, and it only requires python3. Running the program should result in a menu giving options from 1 to 5.
 The first option will run a set of example tests that demonstrate what the code does.
 The second will create a tree from a set of sentences to see whether it is satisfiable.
-The third will do the same as teh previous, except it informs you if it is a contradiction.
+The third will do the same as the previous, except it informs you if it is a contradiction.
 For the fourth option, so as to distiguish whether the sentence input is a tautology, we must test whether its negation is a contradiction.
 This menu will keep on appearing until number five is selected, which quits the program.
 
-When inputting sentences, I have required more than the syntax of propositional logic usually demands. Firstly, I have prevented the user from inputting unnecessary brackets, which includes brackets that wrap around the entire sentence as well as double brackets. On top of this, the user must make all implicit brackets explicit. 
+When inputting sentences, I have required more than the syntax of propositional logic usually demands. Firstly, I have prevented the user from inputting unnecessary brackets, which includes brackets that wrap around the entire sentence as well as double brackets. However, I do allow for repeated negations. On top of this, the user must make all implicit brackets explicit. 
 
 For example, the implicit brackets for `p v q v r` are `p v ( q v r )`, meaning only the second sentence would be excepeted by the program. Another example would be that `p ^ ¬p` has to be written as `p ^ ( ¬ ( p ) )`. Brackets are important as they dictate the scope of a connective.
 
