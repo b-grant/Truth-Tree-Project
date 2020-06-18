@@ -201,18 +201,44 @@ def nif_conn(node, i):
 
 #for ¬ ( ... <-> ... )
 def niff_conn(node, i):
+##    x = node.v
+##    y = x[i][1]
+##    del x[i]
+##    f = x[:]
+##    f.append(y[0][:])
+##    f.append(y[2][:])
+##    s = x[:]
+##    s.append(y[2][:])
+##    
+##    node.l = Node(f)
+##    node.l.vd.append(y[0][:])
+##    node.l.p = node
+##    node.r = Node(s)
+##    node.r.vd.append(y[2][:])
+##    node.r.p = node
     x = node.v
     y = x[i][1]
     del x[i]
     f = x[:]
-    f.append(y[0][:])
-    f.append(y[2][:])
     s = x[:]
-    s.append(y[2][:])
-    
+
+    if isinstance(y[0],list):
+        z = ["¬", y[0][:]]
+    else:
+        z = ["¬", [y[0][:]]]
+    if isinstance(y[2],list):
+        z1 = ["¬", y[2][:]]
+    else:
+        z1 = ["¬", [y[2][:]]]
+    f.append(z)
+    f.append(y[2][:])
+    s.append(y[0][:])
+    s.append(z1)
     node.l = Node(f)
-    node.l.vd.append(y[0][:])
+    node.l.vd.append(z)
+    node.l.vd.append(y[2][:])
     node.l.p = node
     node.r = Node(s)
-    node.r.vd.append(y[2][:])
+    node.r.vd.append(y[0][:])
+    node.r.vd.append(z1)
     node.r.p = node
