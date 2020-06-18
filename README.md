@@ -10,7 +10,7 @@ Concerning proof using a truth tree, either all paths are closed or they aren't.
 
 
 ## Usage
-It should be run using main.py. This should result in a menu giving options from 1 to 5.
+It should be run using main.py, and it only requires python3. Running the program should result in a menu giving options from 1 to 5.
 The first option will run a set of example tests that demonstrate what the code does.
 The second will create a tree from a set of sentences to see whether it is satisfiable.
 The third will do the same as teh previous, except it informs you if it is a contradiction.
