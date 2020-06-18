@@ -1,14 +1,16 @@
 from tree import Tree
 from node import Node
 
-#main conn function is called by make_tree
-#calls diffrent conn functions to decide what needs to be done next
+#main conn function is called by make_tree which is in options
+#calls different conn functions to decide what needs to be done next
 
 def conn(node):
     i = 0
     x = node.v
     found = False
     while not found and i<len(x):
+        #found will remain false if the sentence at i is either a singular sentence letter
+        #or the negation of one
         if len(x[i])==2:
             found = which_not(node,i)
         elif len(x[i])==3:
@@ -17,6 +19,7 @@ def conn(node):
 
 def which_not(node,i):
     x=(node.v)[i][1]
+    #if statement passes through different characteristics which certain sentence types uniquely possess
     if len(x)==2:
         nn_conn(node,i)
         return True
@@ -35,6 +38,7 @@ def which_not(node,i):
 
 def which_bi(node,i):
     x = node.v[i]
+    #same as for which_not
     if x[1]=="v":
         or_conn(node,i)
     elif x[1]=="^":
@@ -45,6 +49,7 @@ def which_bi(node,i):
         iff_conn(node,i)
     return True
 
+#for ( ¬ ( ¬ ( ...
 def nn_conn(node, i):
     y = (node.v)
     x = y[i][:]
@@ -61,7 +66,7 @@ def nn_conn(node, i):
             x = x = ["¬",[x[0]]]
     y[i] = x
         
-
+# for ... v ...
 def or_conn(node, i):
     x = node.v
     y = x[i][:]
@@ -78,6 +83,7 @@ def or_conn(node, i):
     node.r.vd.append(y[2][:])
     node.r.p = node
 
+#for ¬ ( ... v ... )
 def nor_conn(node, i):
     x = node.v
     y = x[i][1][:]
@@ -95,6 +101,7 @@ def nor_conn(node, i):
     node.vd.append(z)
     node.vd.append(z1)
 
+#for ¬ ( ... ^ ... )
 def nand_conn(node, i):
     x = node.v
     y = x[i][1][:]
@@ -119,6 +126,7 @@ def nand_conn(node, i):
     node.r.vd.append(z1)
     node.r.p = node
 
+#for ... -> ...
 def if_conn(node, i):
     x = node.v
     y = x[i][:]
@@ -139,6 +147,7 @@ def if_conn(node, i):
     node.r.vd.append(y[2][:])
     node.r.p = node
 
+#for ... <-> ...
 def iff_conn(node,i):
     x = node.v
     y = x[i]
@@ -167,6 +176,7 @@ def iff_conn(node,i):
     node.r.vd.append(z1)
     node.r.p = node
 
+#for ... ^ ...
 def and_conn(node, i):
     x = node.v
     y = x[i][:]
@@ -176,6 +186,7 @@ def and_conn(node, i):
     node.vd.append(y[0][:])
     node.vd.append(y[2][:])
 
+#for ¬ ( ... -> ... )    
 def nif_conn(node, i):
     x = node.v
     y = x[i][1][:]
@@ -189,6 +200,7 @@ def nif_conn(node, i):
     node.vd.append(y[0][:])
     node.vd.append(z1)
 
+#for ¬ ( ... <-> ... )
 def niff_conn(node, i):
     x = node.v
     y = x[i][1]
