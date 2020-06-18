@@ -1,5 +1,6 @@
 #all check functions are for checking syntax of a sentence
 
+#function that returns whether there is an equal amount of open and closed brackets
 def check_bracks(x):
     i = 0
     correct = True
@@ -15,6 +16,7 @@ def check_bracks(x):
         i+=1
     return (correct and (bopen==0))
 
+#function that checks the syntax of any binary connectives
 def check_biconn(x, i):
     biconn_list = ["v", "^", "->", "<-", "<->"]
     if (i==0 or i+1==(len(x))):
@@ -34,6 +36,7 @@ def check_biconn(x, i):
     else:
         return False    
 
+#function that checks the syntax of a negation
 def check_not(x, i, b):
     if (i+1)==(len(x)):
         return False
@@ -50,13 +53,14 @@ def check_not(x, i, b):
     else:
         return False
 
-
+#decided whether a connective is binary or a negation
 def check_conn(x, i, b):
     if (x[i]=="¬"):
         return check_not(x,i, b)
     else:
         return check_biconn(x,i)
 
+#checks the syntax of a variable
 def check_var(x, i, con):
     if len(x[i])>1:
         print("Not a single letter variable")
@@ -75,6 +79,8 @@ def check_var(x, i, con):
         return False
     return True
 
+#converts a string into a usable nested list
+#eg. p ^ ( p -> r ) becomes ["p",["p","<->","r"]]
 def brackets(string, c, b):
 
     current = []
@@ -125,7 +131,8 @@ def find_match(s):
        
     return next_dict
             
-
+#main convertion function
+#checks the syntax of a sentence, converts it and returns it
 def convert(string):
     x = string.split()
     b_dict = find_match(x)
