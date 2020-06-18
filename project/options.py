@@ -107,6 +107,7 @@ def pick():
                 vs.append(v)
     return vs
 
+#option 1) examples
 def one():
     print("Example 1: contradiction with multiple paths")
     s = "r ^ ( ¬ ( p ) )"
@@ -299,7 +300,7 @@ def one():
 
     print("\n\n")  
     
-
+#option 2) satisfiable
 def two():
     vs = pick()
     if len(vs)>0:
@@ -318,6 +319,7 @@ def two():
         print("An empty set has no tree")
     print("\n\n\n\n")
 
+#option 3) contradiction
 def three():
     vs = pick()
     if len(vs)> 0:
@@ -336,6 +338,7 @@ def three():
         print("An empty set has no tree")
     print("\n\n\n\n")
 
+#option 4) tautology
 def four():
     d = False
     vs = []
