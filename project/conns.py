@@ -56,15 +56,16 @@ def nn_conn(node, i):
     k = 0
     while isinstance(x,list) and x[0]=="¬":
         k+=1
+        print(x)
         x = x[1]
-    if k%2==0:
-        x = x[0]
-    else:
-        if isinstance(x[0],list):
-            x = ["¬",x[0]]
+    if k%2==1:
+        if isinstance(x,list):
+            x = ["¬",x]
         else:
-            x = x = ["¬",[x[0]]]
-    y[i] = x
+            x = x = ["¬",[x]]
+    print(x)
+    y[i] = x[:]
+    node.vd.append(x)
         
 # for ... v ...
 def or_conn(node, i):
